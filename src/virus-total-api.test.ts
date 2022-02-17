@@ -29,14 +29,15 @@ async function testApi(
  * Normally skip this test case to preserve API quotas and avoid failing due to network issues.
  */
 describe.skip('virus-total-api', function () {
-  const apiKey = getVtApiKey();
   const compareToMock = true;
   const writeToMock = false;
   it('return proper response for Chrome hash', async function () {
+    const apiKey = getVtApiKey();
     const response = JSON.stringify(await checkHash('a089308a259b8f3c8482a8ae4df155e8c6e46b12', apiKey));
     await testApi(response, join(__dirname, 'mock/chrome-response.json'), { compareToMock, writeToMock });
   });
-  it('fail recognize malicious hash', async function () {
+  it('return proper response for malicious file hash', async function () {
+    const apiKey = getVtApiKey();
     const response = JSON.stringify(await checkHash('efa8eb64099989f2699eff82a7ff35dc750c027e', apiKey));
     await testApi(response, join(__dirname, 'mock/malware-response.json'), { compareToMock, writeToMock });
   });
