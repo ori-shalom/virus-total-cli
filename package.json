@@ -1,13 +1,14 @@
 {
   "name": "@ori-sh/virus-total",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "A NodeJS Library and CLI wrapper for the Virus Total API.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha -r ts-node/register -p src/**/*.test.ts",
     "tsc": "tsc",
     "build": "tsc && chmod +x dist/index.js"
   },
+  "files": ["dist"],
   "keywords": ["Virus Total", "VT", "CLI", "Antivirus", "File Check"],
   "author": "Ori Shalom <ori.100000@gmail.com>",
   "license": "MIT",
